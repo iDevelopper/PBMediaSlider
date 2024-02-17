@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'PBMediaSlider_Example' do
+  pod 'PBMediaSlider', :path => '../'
+
+  target 'PBMediaSlider_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

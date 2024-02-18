@@ -56,9 +56,9 @@ public struct UIControlPublisher<Control: UIControl>: Publisher {
 }
 
 /// Extending the `UIControl` types to be able to produce a `UIControl.Event` publisher.
-protocol CombineCompatible { }
+public protocol CombineCompatible { }
 extension PBMediaSlider: CombineCompatible { }
-extension CombineCompatible where Self: PBMediaSlider {
+public extension CombineCompatible where Self: PBMediaSlider {
     func publisher(for events: UIControl.Event) -> UIControlPublisher<UIControl> {
         return UIControlPublisher(control: self, events: events)
     }

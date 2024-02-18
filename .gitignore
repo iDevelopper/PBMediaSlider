@@ -18,6 +18,11 @@ DerivedData
 *.hmap
 *.ipa
 
+# Swift Package Manager
+/.build
+.swiftpm/
+.netrc
+
 # Bundler
 .bundle
 

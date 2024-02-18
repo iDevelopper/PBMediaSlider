@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import PBMediaSlider
 
 class ViewController: UIViewController {
     
@@ -36,7 +37,25 @@ class ViewController: UIViewController {
         didSet {
             valueButton.titleLabel?.adjustsFontForContentSizeCategory = true
             if #available(iOS 15.0, *) {
-                valueButton.maximumContentSizeCategory = .small
+                valueButton.maximumContentSizeCategory = .accessibilityMedium
+            }
+            
+            if #available(iOS 15.0, *) {
+                var configuration = UIButton.Configuration.filled()
+                configuration.cornerStyle = .capsule
+                configuration.title = "0.50"
+                configuration.baseForegroundColor = UIColor.label
+                configuration.baseBackgroundColor = UIColor(dynamicProvider: { $0.userInterfaceStyle == .dark ? .black : .white })
+                configuration.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 10.0, bottom: 5.0, trailing: 10.0)
+                valueButton.configuration = configuration
+            }
+            else {
+                valueButton.setTitle("0.50", for: .normal)
+                valueButton.setTitleColor(.label, for: .normal)
+                valueButton.backgroundColor = UIColor(dynamicProvider: { $0.userInterfaceStyle == .dark ? .black : .white })
+                valueButton.layer.cornerRadius = 8
+                valueButton.layer.cornerCurve = .continuous
+                valueButton.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
             }
         }
     }
@@ -67,6 +86,8 @@ class ViewController: UIViewController {
         }
     }
     @IBOutlet weak var modeSwitch: UISwitch!
+    
+    var backgroundView: UIImageView!
     
     private let rtlKey = "isRtlDirection"
     
@@ -106,17 +127,25 @@ class ViewController: UIViewController {
         let rtlDirection = UserDefaults.standard.bool(forKey: rtlKey)
         UIView.appearance().semanticContentAttribute = rtlDirection ? .forceRightToLeft : .forceLeftToRight
         
-        let item = UIBarButtonItem(title: rtlDirection ? "RTL" : "LTR", style: .plain, target: self, action: #selector(changeLayoutDirection(_ :)))
-        self.navigationItem.rightBarButtonItem = item
-        
-        // 197 200 223
-        self.view.backgroundColor = UIColor(_colorLiteralRed: 197/255, green: 200/255, blue: 223/255, alpha: 1.0)
+        let rtlItem = UIBarButtonItem(title: rtlDirection ? "RTL" : "LTR", style: .plain, target: self, action: #selector(changeLayoutDirection(_ :)))
+        self.navigationItem.rightBarButtonItem = rtlItem
+        let colorsItem = UIBarButtonItem(image: UIImage(systemName: "circle.hexagongrid.fill")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(changeBackground(_:)))
+        self.navigationItem.leftBarButtonItem = colorsItem
+
         self.containerView.backgroundColor = nil
+        
+        self.view.tintColor = UIColor.label
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         
         self.setupBackground()
         
         NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main) { [weak self] notification in
             self?.updateLabelFonts()
+        }
+        if #available(iOS 17.0, *) {
+            self.registerForTraitChanges([UITraitUserInterfaceStyle.self]) { (self: Self, previousTraitCollection: UITraitCollection) in
+                self.updateLabelColors()
+            }
         }
     }
     
@@ -131,24 +160,38 @@ class ViewController: UIViewController {
     {
         super.viewDidLayoutSubviews()
         
+        valueButton.layer.cornerRadius = valueButton.bounds.height / 2
         let containerHeight = self.uislider != nil ? self.uislider.frame.maxY : self.valueLabel4.frame.maxY
-        let optionsHeight = self.modeSwitch.frame.maxY - self.valueLabel.frame.minY + 8.0
+        let optionsHeight = self.modeSwitch.frame.maxY - self.valueLabel.frame.minY
         let totalHeight = self.view.safeAreaLayoutGuide.layoutFrame.height
-        let scrollHeight = totalHeight - optionsHeight
+        let scrollHeight = totalHeight - optionsHeight - view.safeAreaInsets.bottom
         
         if let heightConstraint = self.scrollViewHeightConstraint {
             heightConstraint.constant = scrollHeight
         }
         if let heightConstraint = self.containerViewHeightConstraint {
-            heightConstraint.constant = containerHeight + 8.0
+            heightConstraint.constant = max(containerHeight, scrollHeight)
         }
     }
-    
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
+    {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        self.updateLabelColors()
+    }
+
     // MARK: - Setup UI Methods
     
     private func setupBackground()
     {
-        let backgroundView = UIImageView(image: UIImage(named: "Cover07"))
+        let image = UIImage(named: String(format: "Cover%02d", Int.random(in: 1...23)))
+        
+        self.view.backgroundColor = image?.averageColor
+        
+        self.updateLabelColors()
+                
+        self.backgroundView = UIImageView(image: image)
         backgroundView.contentMode = .scaleAspectFill
 
         self.containerView.insertSubview(backgroundView, at: 0)
@@ -243,7 +286,6 @@ class ViewController: UIViewController {
     
     private func updateLabelFonts()
     {
-        valueButton.titleLabel?.font = UIFont.preferredMonospacedFont(for: .headline, weight: .regular, maxPointSize: 72)
         for subview: AnyObject in self.view.subviews {
             if let label = subview as? UILabel, label.tag == 998 {
                 label.font = UIFont.preferredFont(forTextStyle: .headline, weight: .regular, fontDesign: .rounded)
@@ -258,15 +300,31 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    private func updateLabelColors()
+    {
+        if let color = self.view.backgroundColor {
+            valueLabel.textColor = color.contrastingColor()
+            enabledLabel.textColor = color.contrastingColor()
+            modeLabel.textColor = color.contrastingColor()
+            
+            self.navigationController?.navigationBar.tintColor = color.contrastingColor()
+            let barAppearance = UINavigationBarAppearance()
+            barAppearance.configureWithOpaqueBackground()
+            barAppearance.titleTextAttributes = [.foregroundColor: color.contrastingColor()]
+            navigationItem.compactAppearance = barAppearance
+            navigationItem.standardAppearance = barAppearance
+        }
+    }
 
     private func setupSliders()
     {
-        self.slider1 = PBMediaSlider(frame: CGRect(x: 50, y: 100, width: self.containerView.bounds.width - 100, height: 15), value: 10.0, inRange: 0...100, activeFillColor: activeFillColor, fillColor: fillColor, emptyColor: emptyColor)
+        self.slider1 = PBMediaSlider(frame: CGRect(x: 50, y: 100, width: self.containerView.bounds.width - 100, height: 14), value: 10.0, inRange: 0...100, activeFillColor: activeFillColor, fillColor: fillColor, emptyColor: emptyColor)
         slider1.autoresizingMask = [.flexibleWidth, .flexibleLeftMargin, .flexibleRightMargin]
         //slider1.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .systemUltraThinMaterial), style: .fill)
         //slider1.imagesEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .systemUltraThinMaterial), style: .fill)
         slider1.feedbackStyle = .heavy
-        slider1.sliderIntrinsicHeight = 15
+        slider1.sliderIntrinsicHeight = 14
         slider1.isContinuous = true
         slider1.addTarget(self, action: #selector(sliderViewValueChanged(_ :)), for: .valueChanged)
         slider1.minimumValueImage = UIImage(systemName: "speaker.fill")
@@ -356,7 +414,8 @@ class ViewController: UIViewController {
         self.modeLabel.text = layoutDirection == .rightToLeft ? "نمط واجهة المستخدم" : "User Interface Style"
     }
     
-    @objc private func changeLayoutDirection(_ sender: UIBarButtonItem) {
+    @objc private func changeLayoutDirection(_ sender: UIBarButtonItem)
+    {
         var rtlDirection = UserDefaults.standard.bool(forKey: rtlKey)
         rtlDirection.toggle()
         UserDefaults.standard.setValue(rtlDirection, forKey: rtlKey)
@@ -365,10 +424,18 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
 
+    @objc private func changeBackground(_ sender: UIBarButtonItem)
+    {
+        let image = UIImage(named: String(format: "Cover%02d", Int.random(in: 1...23)))
+        self.view.backgroundColor = image?.averageColor
+        self.backgroundView.image = image
+        self.updateLabelColors()
+    }
 
     // MARK: - PBMediaSlider Events
     
-    @objc private func sliderViewValueChanged(_ slider: PBMediaSlider) {
+    @objc private func sliderViewValueChanged(_ slider: PBMediaSlider)
+    {
         //print("progress: \(slider.progress)")
         let text = String(format: "%.02f", slider.value)
         switch slider {
@@ -445,7 +512,8 @@ class ViewController: UIViewController {
 
     // MARK: - IBAction Callbacks
     
-    @IBAction func enableSliders(_ sender: UISwitch) {
+    @IBAction func enableSliders(_ sender: UISwitch)
+    {
         self.slider1.isEnabled.toggle()
         self.slider2.isEnabled.toggle()
         self.slider3.isEnabled.toggle()
@@ -453,7 +521,8 @@ class ViewController: UIViewController {
         self.uislider.isEnabled.toggle()
     }
     
-    @IBAction func changeValueAnimated(_ sender: UIButton) {
+    @IBAction func changeValueAnimated(_ sender: UIButton)
+    {
         let text = String(format: "%.02f", 0.50)
         slider1.setValue(0.5, animated: true)
         valueLabel1.text = text
@@ -468,7 +537,8 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func overrideInterfaceStyle(_ sender: Any) {
+    @IBAction func overrideInterfaceStyle(_ sender: Any)
+    {
         let userInterfaceStyle = self.traitCollection.userInterfaceStyle
         self.overrideUserInterfaceStyle = userInterfaceStyle == .light ? .dark : .light
         self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle == .light ? .dark : .light
@@ -484,3 +554,60 @@ class ViewController: UIViewController {
   vc.loadViewIfNeeded()
   return vc
 }
+
+extension UIImage {
+    var averageColor: UIColor? {
+        guard let inputImage = CIImage(image: self) else { return nil }
+        let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
+
+        guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
+        guard let outputImage = filter.outputImage else { return nil }
+
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        let context = CIContext(options: [.workingColorSpace: kCFNull!])
+        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
+
+        return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
+    }
+}
+
+extension UIColor {
+    convenience init(
+        light lightModeColor: @escaping @autoclosure () -> UIColor,
+        dark darkModeColor: @escaping @autoclosure () -> UIColor
+     ) {
+        self.init { traitCollection in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return lightModeColor()
+            case .dark:
+                return darkModeColor()
+            case .unspecified:
+                return lightModeColor()
+            @unknown default:
+                return lightModeColor()
+            }
+        }
+    }
+    
+    /// returns true if is a dark color
+    var isDarkColor: Bool {
+        var r, g, b, a: CGFloat
+        (r, g, b, a) = (0, 0, 0, 0)
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        let lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
+        return  lum < 0.45
+    }
+    
+    /// Generates contrasting color for dark and light userInterfaceStyles
+    /// - Returns: UIColor.white for dark colors else return UIColor.black
+    func contrastingColor() -> UIColor {
+        let dark = self.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark))
+        let light = self.resolvedColor(with: UITraitCollection(userInterfaceStyle: .light))
+        
+        return UIColor(light: light.isDarkColor ? .white : .black,
+                       dark: dark.isDarkColor ? .white : .black)
+    }
+    
+}
+

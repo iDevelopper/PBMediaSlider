@@ -1,0 +1,16 @@
+PODS:
+  - PBMediaSlider (0.1.0)
+
+DEPENDENCIES:
+  - PBMediaSlider (from `../`)
+
+EXTERNAL SOURCES:
+  PBMediaSlider:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PBMediaSlider: 0b2c4518440a455fe9d2687527456080fcc406d6
+
+PODFILE CHECKSUM: 53b99334bcbff00ddcfc62f1e1ec7bf0e00621f2
+
+COCOAPODS: 1.14.2

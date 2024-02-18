@@ -1,0 +1,22 @@
+{
+  "name": "PBMediaSlider",
+  "version": "0.1.0",
+  "summary": "A short description of PBMediaSlider.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/iDevelopper/PBMediaSlider",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iDevelopper": "patrick.bodet4@wanadoo.fr"
+  },
+  "source": {
+    "git": "https://github.com/iDevelopper/PBMediaSlider.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "PBMediaSlider/Classes/**/*"
+}

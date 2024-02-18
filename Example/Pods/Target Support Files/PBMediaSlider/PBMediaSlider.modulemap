@@ -1,0 +1,6 @@
+framework module PBMediaSlider {
+  umbrella header "PBMediaSlider-umbrella.h"
+
+  export *
+  module * { export * }
+}

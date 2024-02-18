@@ -5,6 +5,7 @@
 //  Created by Patrick BODET on 28/01/2024.
 //
 
+import Foundation
 import UIKit
 
 @objc public enum PBMediaSliderStyle : Int {

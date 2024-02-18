@@ -67,10 +67,6 @@ Add the following to your Cartfile:
 
 Make sure you follow the Carthage integration instructions [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 
-### Manual
-
-Drag the `PBMediaSlider.xcodeproj` project to your project, and add `PBMediaSlider.framework` to **Embedded Binaries** in your project target's **General** tab. Xcode should sort everything else on its own.
-
 ### CocoaPods
 
 `PBMediaSlider` is available for installation using the Cocoa dependency manager [CocoaPods](http://cocoapods.org/). 
@@ -87,6 +83,9 @@ pod 'PBMediaSlider'
 
 ## Features
 
+* iOS 16+ Apple Music look and feel support.
+* Slider and Progress control support.
+* Combine subscribers support.
 * Full Right-To-Left support.
 * Accessibility support.
 * iOS 13 dark mode support.
@@ -98,4 +97,10 @@ Patrick BODET aka iDevelopper
 
 ## License
 
-PBMediaSlider is available under the MIT license. See the LICENSE file for more info.
+`PBMediaSlider` is available under the MIT license, see the [LICENSE](https://github.com/iDevelopper/PBMediaSlider/blob/main/LICENSE) file for more information.
+
+Please tell me when you use this controller in your project!
+
+Regards,
+
+Patrick Bodet aka iDevelopper

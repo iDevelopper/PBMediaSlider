@@ -40,7 +40,7 @@
         slider.addTarget(self, action: #selector(sliderViewValueChanged(_ :)), for: .valueChanged)
         slider.minimumValueImage = UIImage(systemName: "speaker.fill")
         slider.maximumValueImage = UIImage(systemName: "speaker.wave.3.fill")
-        self.view.addSubview(slider)
+        self.containerView.addSubview(slider)
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50).isActive = true
         slider.leadingAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true

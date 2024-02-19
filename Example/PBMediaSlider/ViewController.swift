@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var enableSwitch: UISwitch!
 
-    // "نمط واجهة المستخدم"
+    // "الوضع المظلم"
     @IBOutlet weak var modeLabel: UILabel! {
         didSet {
             modeLabel.textColor = .label
@@ -85,7 +85,11 @@ class ViewController: UIViewController {
             }
         }
     }
-    @IBOutlet weak var modeSwitch: UISwitch!
+    @IBOutlet weak var modeSwitch: UISwitch! {
+        didSet {
+            modeSwitch.isOn = false
+        }
+    }
     
     var backgroundView: UIImageView!
     
@@ -411,7 +415,7 @@ class ViewController: UIViewController {
     {
         self.enabledLabel.text = layoutDirection == .rightToLeft ? "ممكّن" : "Enabled"
         self.valueLabel.text = layoutDirection == .rightToLeft ? "اضبط القيمة على" : "Set Value To"
-        self.modeLabel.text = layoutDirection == .rightToLeft ? "نمط واجهة المستخدم" : "User Interface Style"
+        self.modeLabel.text = layoutDirection == .rightToLeft ? "الوضع المظلم" : "Dark Mode"
     }
     
     @objc private func changeLayoutDirection(_ sender: UIBarButtonItem)

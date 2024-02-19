@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,34 +31,26 @@
 /* Begin PBXFileReference section */
 		0C80CB4EE9C369AD5B343FC80ADA0B90 /* PBMediaSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PBMediaSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E09D4854F4026A0B3D97706A4DA1DF7 /* Pods-PBMediaSlider_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PBMediaSlider_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0EAA6465192F204D8EBE6775B64D497D /* Pods-PBMediaSlider_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PBMediaSlider_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		0F05459BF4716EB06FBC0BC22102FD01 /* PBMediaSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PBMediaSlider-Info.plist"; sourceTree = "<group>"; };
 		1C7DF940CD1A74A57E537A82D4D1B2CF /* PBMediaSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PBMediaSlider-dummy.m"; sourceTree = "<group>"; };
-		2C2330BB7A39761362EFB2B788A6A41D /* Pods-PBMediaSlider_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBMediaSlider_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3255140B2B81DBC60091956A /* PBMediaSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PBMediaSlider.swift; path = PBMediaSlider/Classes/PBMediaSlider.swift; sourceTree = "<group>"; };
 		3255140C2B81DBC60091956A /* PBControlValuePublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PBControlValuePublisher.swift; path = PBMediaSlider/Classes/PBControlValuePublisher.swift; sourceTree = "<group>"; };
 		3255140D2B81DBC60091956A /* UIFont+Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Support.swift"; path = "PBMediaSlider/Classes/UIFont+Support.swift"; sourceTree = "<group>"; };
 		381A65A2B4084700B0E110D5B7AFA5D3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4DD811C6ED7F178B9B879135E757BD2B /* Pods-PBMediaSlider_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PBMediaSlider_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		4E6B9F7B30F840A39A4D4F7BF3A87780 /* Pods-PBMediaSlider_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBMediaSlider_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		4FF81B2364CBB5E82EE5ECCA5E111923 /* Pods-PBMediaSlider_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PBMediaSlider_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5E29E916035D7B90CD5DA68812C82884 /* Pods-PBMediaSlider_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PBMediaSlider_Example-frameworks.sh"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7470A4636FF710BEBC02C0E71D2C99BF /* Pods-PBMediaSlider_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PBMediaSlider_Example-umbrella.h"; sourceTree = "<group>"; };
 		7B25635FCD72D6F443B144E67E31084D /* PBMediaSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PBMediaSlider.debug.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AF5767661B79C34BFA25187262320BBA /* Pods-PBMediaSlider_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PBMediaSlider_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AFB637896D293C4A9719A02585C3585C /* Pods-PBMediaSlider_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PBMediaSlider_Example.modulemap"; sourceTree = "<group>"; };
-		B5DCA3AA4C3322531FF5656FBBFE04B2 /* Pods-PBMediaSlider_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PBMediaSlider_Tests-dummy.m"; sourceTree = "<group>"; };
 		B7127159C39D8EC8960F238B25F887CD /* PBMediaSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PBMediaSlider.modulemap; sourceTree = "<group>"; };
-		BA25E29FD75ADEF6CCA522555B319373 /* Pods-PBMediaSlider_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PBMediaSlider_Tests-Info.plist"; sourceTree = "<group>"; };
 		C5372B34392907F72C508796AF3A81B4 /* Pods-PBMediaSlider_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PBMediaSlider_Example-dummy.m"; sourceTree = "<group>"; };
 		C548539D9C1A7B5523058CECA0CBD8E0 /* Pods-PBMediaSlider_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PBMediaSlider_Example-Info.plist"; sourceTree = "<group>"; };
-		C96E815A8011F011C4C75FE4AB941481 /* Pods-PBMediaSlider_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PBMediaSlider_Tests.modulemap"; sourceTree = "<group>"; };
 		DE71E66C0A821C25106142102C071A25 /* Pods_PBMediaSlider_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBMediaSlider_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEA54A8F7B18E4C8486DBC426FC848B /* PBMediaSlider.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = PBMediaSlider.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E63E4083E1C390FD3FF7D752321E5BD7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E701E49A646CABCC4243127B56162807 /* Pods-PBMediaSlider_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PBMediaSlider_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E7848B2208EA24A06C96F03CC761CE0F /* PBMediaSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBMediaSlider-umbrella.h"; sourceTree = "<group>"; };
 		E89E7E73639FB7BAAD5DD446BE254119 /* PBMediaSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PBMediaSlider.release.xcconfig; sourceTree = "<group>"; };
 		E8DF5A6D8A4808CAE8D534B27CEA24C8 /* PBMediaSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PBMediaSlider-prefix.pch"; sourceTree = "<group>"; };
@@ -123,27 +115,10 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		769CD279E9E84F9DC79A35265F253DB8 /* Pods-PBMediaSlider_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C96E815A8011F011C4C75FE4AB941481 /* Pods-PBMediaSlider_Tests.modulemap */,
-				AF5767661B79C34BFA25187262320BBA /* Pods-PBMediaSlider_Tests-acknowledgements.markdown */,
-				0EAA6465192F204D8EBE6775B64D497D /* Pods-PBMediaSlider_Tests-acknowledgements.plist */,
-				B5DCA3AA4C3322531FF5656FBBFE04B2 /* Pods-PBMediaSlider_Tests-dummy.m */,
-				BA25E29FD75ADEF6CCA522555B319373 /* Pods-PBMediaSlider_Tests-Info.plist */,
-				E701E49A646CABCC4243127B56162807 /* Pods-PBMediaSlider_Tests-umbrella.h */,
-				2C2330BB7A39761362EFB2B788A6A41D /* Pods-PBMediaSlider_Tests.debug.xcconfig */,
-				4FF81B2364CBB5E82EE5ECCA5E111923 /* Pods-PBMediaSlider_Tests.release.xcconfig */,
-			);
-			name = "Pods-PBMediaSlider_Tests";
-			path = "Target Support Files/Pods-PBMediaSlider_Tests";
-			sourceTree = "<group>";
-		};
 		90A19D3F4B846405373593E75D1C606E /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				AF0F543E2F5C04A8AA3239385DD1CE7A /* Pods-PBMediaSlider_Example */,
-				769CD279E9E84F9DC79A35265F253DB8 /* Pods-PBMediaSlider_Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -274,8 +249,9 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					64102ED9FACD3A0AD8405303DE855CC7 = {
 						LastSwiftMigration = 1520;
@@ -356,20 +332,26 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-PBMediaSlider_Example/Pods-PBMediaSlider_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-PBMediaSlider_Example/Pods-PBMediaSlider_Example.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -418,6 +400,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -433,12 +416,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -450,20 +433,26 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/PBMediaSlider/PBMediaSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PBMediaSlider/PBMediaSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/PBMediaSlider/PBMediaSlider.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = PBMediaSlider;
 				PRODUCT_NAME = PBMediaSlider;
 				SDKROOT = iphoneos;
@@ -483,20 +472,26 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-PBMediaSlider_Example/Pods-PBMediaSlider_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-PBMediaSlider_Example/Pods-PBMediaSlider_Example.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -546,6 +541,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -564,12 +560,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -583,20 +578,26 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/PBMediaSlider/PBMediaSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PBMediaSlider/PBMediaSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/PBMediaSlider/PBMediaSlider.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = PBMediaSlider;
 				PRODUCT_NAME = PBMediaSlider;
 				SDKROOT = iphoneos;

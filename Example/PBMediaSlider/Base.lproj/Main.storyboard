@@ -36,7 +36,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="t63-KN-jQ4" firstAttribute="top" secondItem="Bgh-sd-Azf" secondAttribute="top" id="7QZ-cN-vad"/>
-                                    <constraint firstItem="t63-KN-jQ4" firstAttribute="trailing" secondItem="Bgh-sd-Azf" secondAttribute="trailing" constant="393" id="Jde-yd-Bbv"/>
+                                    <constraint firstItem="t63-KN-jQ4" firstAttribute="trailing" secondItem="Bgh-sd-Azf" secondAttribute="trailing" id="Jde-yd-Bbv"/>
                                     <constraint firstItem="t63-KN-jQ4" firstAttribute="bottom" secondItem="Bgh-sd-Azf" secondAttribute="bottom" id="KgS-Mo-eQm"/>
                                     <constraint firstItem="t63-KN-jQ4" firstAttribute="leading" secondItem="Bgh-sd-Azf" secondAttribute="leading" id="ORC-EE-dda"/>
                                     <constraint firstItem="t63-KN-jQ4" firstAttribute="width" secondItem="14Y-LX-O0o" secondAttribute="width" id="qJM-d6-Omk"/>

@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var modeSwitch: UISwitch! {
         didSet {
-            modeSwitch.isOn = false
+            modeSwitch.isOn = self.traitCollection.userInterfaceStyle == .dark
         }
     }
     

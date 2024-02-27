@@ -371,6 +371,13 @@ class ViewController: UIViewController {
         slider4.minimumValue = 0.0
         slider4.maximumValue = 5400.0
         slider4.value = 0.0
+        /*
+        let text = String(format: "%.02f", slider4.value)
+        slider4.elapsedTimeLabel.text = text
+        let remainingValue = slider4.maximumValue - slider4.value
+        let remainingText = String(format: "%.02f", remainingValue)
+        slider4.remainingTimeLabel.text = remainingText
+        */
         //slider4.labelsEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .systemUltraThinMaterial), style: .label)
 
         slider4.addTarget(self, action: #selector(sliderViewValueChanged(_ :)), for: .valueChanged)
@@ -451,6 +458,12 @@ class ViewController: UIViewController {
             valueLabel3.text = text
         case slider4:
             valueLabel4.text = text
+            /*
+            slider.elapsedTimeLabel.text = text
+            let remainingValue = slider.maximumValue - slider.value
+            let remainingText = String(format: "%.02f", remainingValue)
+            slider.remainingTimeLabel.text = remainingText
+            */
         default:
             break
         }

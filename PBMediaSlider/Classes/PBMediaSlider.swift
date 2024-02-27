@@ -82,6 +82,13 @@ extension PBMediaSliderStyle
                 self.setupRemainingTimeLabel()
                 self.setupHighlightedRemainingLabel()
                 
+                self.elapsedTimeLabelObserver = elapsedTimeLabel.observe(\.text) { [weak self] (label, observedChange) in
+                    self?.highlightedElapsedTimeLabel?.text = label.text
+                }
+                self.remainingTimeLabelObserver = remainingTimeLabel.observe(\.text) { [weak self] (label, observedChange) in
+                    self?.highlightedRemainingTimeLabel?.text = label.text
+                }
+                
                 NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main) { [weak self] notification in
                     if self?.style == .progress {
                         self?.setupElapsedTimeLabel()
@@ -131,14 +138,14 @@ extension PBMediaSliderStyle
                 let elapsedTime = Self._secondsToHoursMinutesSecondsStr(seconds: self.value)
                 elapsedTimeLabel.text = elapsedTime
                 if let highlightedElapsedTimeLabel = self.highlightedElapsedTimeLabel {
-                    highlightedElapsedTimeLabel.text = elapsedTime
+                    highlightedElapsedTimeLabel.text = elapsedTimeLabel.text
                 }
             }
             if let remainingTimeLabel = self.remainingTimeLabel {
                 let remainingTime = "-" + Self._secondsToHoursMinutesSecondsStr(seconds: self.maximumValue - self.value)
                 remainingTimeLabel.text = remainingTime
                 if let highlightedRemainingTimeLabel = self.highlightedRemainingTimeLabel {
-                    highlightedRemainingTimeLabel.text = remainingTime
+                    highlightedRemainingTimeLabel.text = remainingTimeLabel.text
                 }
             }
         }
@@ -238,7 +245,6 @@ extension PBMediaSliderStyle
         }
     }
     
-    // TODO:
     /**
      The visual effect applied to the `slider`.
      */
@@ -343,6 +349,15 @@ extension PBMediaSliderStyle
     }
     
     /**
+     The elapsed time label of the progress control (read-only, but its properties can be changed).
+     */
+    @objc public private(set) var elapsedTimeLabel: _PBMediaSliderTimeLabel!
+    
+    /**
+     The remaining time label of the progress control (read-only, but its properties can be changed).
+     */
+    @objc public private(set) var remainingTimeLabel: _PBMediaSliderTimeLabel!
+    /**
      Controls whether interaction with the popup generates haptic feedback to the user.
     
      Defaults to `true`.
@@ -414,12 +429,12 @@ extension PBMediaSliderStyle
 
     private var labelsTopMargin: CGFloat = 4.0
 
-    private var elapsedTimeLabel: _PBMediaSliderTimeLabel!
     private var highlightedElapsedTimeLabel: _PBMediaSliderTimeLabel!
+    private var elapsedTimeLabelObserver: NSKeyValueObservation?
 
-    private var remainingTimeLabel: _PBMediaSliderTimeLabel!
     private var highlightedRemainingTimeLabel: _PBMediaSliderTimeLabel!
-            
+    private var remainingTimeLabelObserver: NSKeyValueObservation?
+
     private var smallImageConfiguration: UIImage.SymbolConfiguration {
         let scaleConfig = UIImage.SymbolConfiguration(scale: .small)
         let weightConfig = UIImage.SymbolConfiguration(weight: .semibold)
@@ -920,7 +935,7 @@ extension PBMediaSliderStyle
             highlightedElapsedTimeLabel.trailingAnchor.constraint(equalTo: elapsedTimeLabel.trailingAnchor).isActive = true
             highlightedElapsedTimeLabel.bottomAnchor.constraint(equalTo: elapsedTimeLabel.bottomAnchor).isActive = true
         }
-        highlightedElapsedTimeLabel.font = UIFont.preferredMonospacedFont(for: .headline, weight: .medium)
+        highlightedElapsedTimeLabel.font = elapsedTimeLabel.font
     }
 
     private func setupRemainingTimeLabel()
@@ -967,7 +982,7 @@ extension PBMediaSliderStyle
             highlightedRemainingTimeLabel.trailingAnchor.constraint(equalTo: remainingTimeLabel.trailingAnchor).isActive = true
             highlightedRemainingTimeLabel.bottomAnchor.constraint(equalTo: remainingTimeLabel.bottomAnchor).isActive = true
         }
-        highlightedRemainingTimeLabel.font = UIFont.preferredMonospacedFont(for: .headline, weight: .medium)
+        highlightedRemainingTimeLabel.font = remainingTimeLabel.font
     }
 
     private func animateMinimumValueImage()
@@ -1185,15 +1200,15 @@ extension PBMediaSlider
         }
     }
     
-    private class _PBMediaSliderTimeLabel: UILabel
+    public class _PBMediaSliderTimeLabel: UILabel
     {
-        var effectView: UIVisualEffectView? {
+        internal var effectView: UIVisualEffectView? {
             didSet {
                 self.effect = effectView?.effect
             }
         }
         
-        var effect: UIVisualEffect?
+        internal var effect: UIVisualEffect?
         
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -1203,7 +1218,7 @@ extension PBMediaSlider
             fatalError("init(coder:) has not been implemented")
         }
         
-        override func tintColorDidChange() {
+        public override func tintColorDidChange() {
             super.tintColorDidChange()
         }
     }
@@ -1235,35 +1250,3 @@ extension PBMediaSlider
         }
     }
 }
-/*
- extension UIFont
- {
- static func preferredMonospacedFont(for style: TextStyle, weight: Weight, maxPointSize: CGFloat = 25.0) -> UIFont {
- let metrics = UIFontMetrics(forTextStyle: style)
- let fontSize = min(UIFont.preferredFont(forTextStyle: style).pointSize, maxPointSize)
- var font = UIFont.systemFont(ofSize: fontSize, weight: weight)
- if let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style).withDesign(.rounded) {
- font = UIFont.monospacedDigitSystemFont(ofSize: min(descriptor.pointSize, maxPointSize), weight: weight)
- }
- return metrics.scaledFont(for: font)
- }
- 
- /// Returns an instance of the font associated with the text style, specified design, and scaled appropriately for the user's selected content size category.
- /// - Parameters:
- ///   - style: The text style for which to return a font. See UIFont.TextStyle for recognized values.
- ///   - weight: The weight of the font, specified as a font weight constant. For a list of possible values, see "Font Weights” in UIFontDescriptor. Avoid passing an arbitrary floating-point number for weight, because a font might not include a variant for every weight.
- ///   - fontDesign: The new system font design.
- /// - Returns: A font object of the specified style, weight, and design.
- static func preferredFont(forTextStyle style: UIFont.TextStyle, weight: UIFont.Weight = .regular, fontDesign: UIFontDescriptor.SystemDesign = .default) -> UIFont {
- let metrics = UIFontMetrics(forTextStyle: style)
- let fontSize = UIFont.preferredFont(forTextStyle: style).pointSize
- var font = UIFont.systemFont(ofSize: fontSize, weight: weight)
- 
- if let descriptor = UIFont.systemFont(ofSize: fontSize, weight: weight).fontDescriptor.withDesign(fontDesign) {
- font = UIFont(descriptor: descriptor, size: fontSize)
- }
- 
- return metrics.scaledFont(for: font)
- }
- }
- */

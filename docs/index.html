@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PBMediaSlider  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="PBMediaSlider  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">PBMediaSlider 0.1.0 Docs</a> (67% documented)</p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">PBMediaSlider Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+        PBMediaSlider  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/PBMediaSlider.html">PBMediaSlider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PBMediaSlider/_PBMediaSliderTimeLabel.html">– _PBMediaSliderTimeLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UIControlSubscription.html">UIControlSubscription</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/PBMediaSliderStyle.html">PBMediaSliderStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/UIFont.html">UIFont</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/CombineCompatible.html">CombineCompatible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/UIControlPublisher.html">UIControlPublisher</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='pbmediaslider' class='heading'>PBMediaSlider</h1>
+
+<p><a href="https://travis-ci.org/iDevelopper/PBMediaSlider"><img src="https://img.shields.io/travis/iDevelopper/PBMediaSlider.svg?style=flat" alt="CI Status"></a>
+<a href="https://cocoapods.org/pods/PBMediaSlider"><img src="https://img.shields.io/cocoapods/v/PBMediaSlider.svg?style=flat" alt="Version"></a>
+<a href="https://cocoapods.org/pods/PBMediaSlider"><img src="https://img.shields.io/cocoapods/l/PBMediaSlider.svg?style=flat" alt="License"></a>
+<a href="https://cocoapods.org/pods/PBMediaSlider"><img src="https://img.shields.io/cocoapods/p/PBMediaSlider.svg?style=flat" alt="Platform"></a></p>
+<h2 id='overview' class='heading'>Overview</h2>
+
+<p>PBMediaSlider is a small Swift Package aiming to recreate volume and track sliders found in Apple Music on iOS 16 and later.
+ PBMediaSlider maintains an API similar to built-in UISlider. It has the same properties, like value and isContinuous. Progress observation is done the same way, by adding a target and an action:</p>
+
+<p>sliderControl.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)</p>
+
+<p>Alternatively, you can subscribe to valuePublisher publisher to receive value updates:</p>
+<pre class="highlight plaintext"><code> var cancellablePublisher: AnyCancellable!
+ ...
+ self.cancellablePublisher = slider.publisher(for: .valueChanged).sink { slider in
+     if let slider = slider as? PBMediaSlider {
+         print("slider value: \(slider.value)")
+     }
+ }
+</code></pre>
+
+<ul>
+<li>Creating a slider
+<code>Swift
+    slider = PBMediaSlider(frame: CGRect(x: 50, y: 100, width: self.containerView.bounds.width - 100, height: 14), value: 10.0, inRange: 0...100, activeFillColor: activeFillColor, fillColor: fillColor, emptyColor: emptyColor)
+    slider.autoresizingMask = [.flexibleWidth, .flexibleLeftMargin, .flexibleRightMargin]
+</code>
+<code>Swift
+    slider = PBMediaSlider(frame: CGRect(x: 50, y: 100, width: self.containerView.bounds.width - 100, height: 14), activeFillColor: activeFillColor, fillColor: fillColor, emptyColor: emptyColor)
+</code>
+<code>Swift
+    slider = PBMediaSlider()
+    slider.minimumValue = 50.0
+    slider.maximumValue = 200.0
+    slider.value = 60.0
+    slider.addTarget(self, action: #selector(sliderViewValueChanged(_ :)), for: .valueChanged)
+    slider.minimumValueImage = UIImage(systemName: &quot;speaker.fill&quot;)
+    slider.maximumValueImage = UIImage(systemName: &quot;speaker.wave.3.fill&quot;)
+    self.containerView.addSubview(slider)
+    slider.translatesAutoresizingMaskIntoConstraints = false
+    slider.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50).isActive = true
+    slider.leadingAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
+    slider.trailingAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
+    slider.heightAnchor.constraint(equalToConstant: height).isActive = true
+</code></li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<p><code><a href="Classes/PBMediaSlider.html">PBMediaSlider</a></code> supports SPM versions 5.1.0 and above. To use SPM, you should use Xcode 11 or above to open your project. Click <code>File</code> -&gt; <code>Swift Packages</code> -&gt; <code>Add Package Dependency</code>, enter <code>https://github.com/iDevelopper/PBMediaSlider</code>. Select the version you’d like to use.</p>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>Add the following to your Cartfile:</p>
+
+<p><code>github &quot;iDevelopper/PBMediaSlider&quot;</code></p>
+
+<p>Make sure you follow the Carthage integration instructions <a href="https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos">here</a>.</p>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p><code><a href="Classes/PBMediaSlider.html">PBMediaSlider</a></code> is available for installation using the Cocoa dependency manager <a href="http://cocoapods.org/">CocoaPods</a>. </p>
+
+<p>Add the following to your project&rsquo;s Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'PBMediaSlider'</span>
+</code></pre>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 13 or later.</li>
+</ul>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>iOS 16+ Apple Music look and feel support.</li>
+<li>Slider and Progress control support.</li>
+<li>Combine subscribers support.</li>
+<li>Full Right-To-Left support.</li>
+<li>Accessibility support.</li>
+<li>iOS 13 dark mode support.</li>
+</ul>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>Patrick BODET aka iDevelopper</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p><code><a href="Classes/PBMediaSlider.html">PBMediaSlider</a></code> is available under the MIT license, see the <a href="https://github.com/iDevelopper/PBMediaSlider/blob/main/LICENSE">LICENSE</a> file for more information.</p>
+
+<p>Please tell me when you use this controller in your project!</p>
+
+<p>Regards,</p>
+
+<p>Patrick Bodet aka iDevelopper</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2024 <a class="link" href="https://github.com/iDevelopper/PBMediaSlider" target="_blank" rel="external noopener">iDevelopper</a>. All rights reserved. (Last updated: 2024-03-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

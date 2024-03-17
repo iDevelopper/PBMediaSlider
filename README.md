@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/cocoapods/v/PBMediaSlider.svg?style=flat)](https://cocoapods.org/pods/PBMediaSlider)
 [![License](https://img.shields.io/cocoapods/l/PBMediaSlider.svg?style=flat)](https://cocoapods.org/pods/PBMediaSlider)
 [![Platform](https://img.shields.io/cocoapods/p/PBMediaSlider.svg?style=flat)](https://cocoapods.org/pods/PBMediaSlider)
+[![Swift: 5.9](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FiDevelopper%2FPBMediaSlider%2Fbadge%3Ftype%3Dswift-versions)](https://developer.apple.com/swift)
+[![Swift Package Manager: compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-4BC51D.svg?style=flat&logo=apple)](https://swiftpackageindex.com/iDevelopper/PBMediaSlider)
 
 ## Overview
 

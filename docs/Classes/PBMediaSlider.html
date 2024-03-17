@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PBMediaSlider Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/PBMediaSlider" class="dashAnchor"></a>
+    <a title="PBMediaSlider Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">PBMediaSlider 0.1.0 Docs</a> (67% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">PBMediaSlider Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        PBMediaSlider Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/PBMediaSlider.html">PBMediaSlider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PBMediaSlider/_PBMediaSliderTimeLabel.html">– _PBMediaSliderTimeLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIControlSubscription.html">UIControlSubscription</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/PBMediaSliderStyle.html">PBMediaSliderStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UIFont.html">UIFont</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CombineCompatible.html">CombineCompatible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/UIControlPublisher.html">UIControlPublisher</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PBMediaSlider</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">PBMediaSlider</span> <span class="p">:</span> <span class="kt">UIControl</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">PBMediaSlider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CombineCompatible.html">CombineCompatible</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>PBMediaSlider is a small Swift Package aiming to recreate volume and track sliders found in Apple Music on iOS 16 and later.
+PBMediaSlider maintains an API similar to built-in UISlider. It has the same properties, like value and isContinuous. Progress observation is done the same way, by adding a target and an action:</p>
+
+<p>sliderControl.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)</p>
+
+<p>Alternatively, you can subscribe to valuePublisher publisher to receive value updates:</p>
+
+<p>var cancellablePublisher: AnyCancellable!
+&hellip;
+self.cancellablePublisher = slider.publisher(for: .valueChanged).sink { slider in
+    if let slider = slider as? PBMediaSlider {
+        print(&ldquo;slider value: (slider.value)&rdquo;)
+    }
+}</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Public Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Properties"></a>
+                  <h3 class="section-name"><span>Public Properties</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)style"></a>
+                    <a name="//apple_ref/swift/Property/style" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)style">style</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The slider view style. Default is slider.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Enums/PBMediaSliderStyle.html">PBMediaSliderStyle</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)sliderIntrinsicHeight"></a>
+                    <a name="//apple_ref/swift/Property/sliderIntrinsicHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)sliderIntrinsicHeight">sliderIntrinsicHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The intrinsic slider height.</p>
+
+<p>The height of the slider is doubled during tracking.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">sliderIntrinsicHeight</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)wideningFactor"></a>
+                    <a name="//apple_ref/swift/Property/wideningFactor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)wideningFactor">wideningFactor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The widening factor of the control when tracking. If you change the value of this property and it is less than 1.0, it is adjusted to 1.0 (no widening).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">wideningFactor</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)value"></a>
+                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)value">value</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The slider’s current value.</p>
+
+<p>Use this property to get and set the slider’s current value. To render an animated transition from the current value to the new value, use the setValue:animated: method instead.
+If you try to set a value that’s below the minimum or above the maximum, the minimum or maximum value is set instead. The default value of this property is 0.0.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Float</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)progress"></a>
+                    <a name="//apple_ref/swift/Property/progress" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)progress">progress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The slider’s current progress.</p>
+
+<p>Use this property to get the slider’s current progress. To change this value ot to render an animated transition from the current progress to the new progress, use the setProgress:animated: method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">progress</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)minimumValue"></a>
+                    <a name="//apple_ref/swift/Property/minimumValue" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)minimumValue">minimumValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The minimum value of the slider.</p>
+
+<p>Use this property to set the value that the leading end of the slider represents. If you change the value of this property, and the current value of the slider is below the new minimum, the slider adjusts the value property to match the new minimum. If you set the minimum value to a value larger than the maximum, the slider updates the maximum value to equal the minimum.
+The default value of this property is 0.0.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">minimumValue</span><span class="p">:</span> <span class="kt">Float</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)maximumValue"></a>
+                    <a name="//apple_ref/swift/Property/maximumValue" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)maximumValue">maximumValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum value of the slider.</p>
+
+<p>Use this property to set the value that the trailing end of the slider represents. If you change the value of this property, and the current value of the slider is above the new maximum, the slider adjusts the value property to match the new maximum. If you set the maximum value to a value smaller than the minimum, the slider updates the minimum value to equal the maximum.
+The default value of this property is 1.0.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">maximumValue</span><span class="p">:</span> <span class="kt">Float</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)isContinuous"></a>
+                    <a name="//apple_ref/swift/Property/isContinuous" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)isContinuous">isContinuous</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether changes in the slider’s value generate continuous update events.</p>
+
+<p>If true, the slider triggers the associated target’s action method repeatedly, as the user tracks it. If false, the slider triggers the associated action method just once, when the user releases the slider’s control to set the final value.
+The default value of this property is true.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">isContinuous</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)enabled"></a>
+                    <a name="//apple_ref/swift/Property/isEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)enabled">isEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the control is in the enabled state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)effect"></a>
+                    <a name="//apple_ref/swift/Property/effect" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)effect">effect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The visual effect applied to the <code>PBMediaSlider</code> elements.
+.
+Defaults to <code>UIVibrancyEffect.UIVibrancyEffectStyle.fill</code> over <code>UIBlurEffect.Style.systemMaterial</code>  for labels.
+Defaults to <code>UIVibrancyEffect.UIVibrancyEffectStyle.label</code> over <code>UIBlurEffect.Style.systemMaterial</code>  for images.</p>
+
+<p>The effect can be modified as follows:
+slider.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .systemUltraThinMaterial), style: .fill)</p>
+
+<p>If nil, no effect is applied.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">effect</span><span class="p">:</span> <span class="kt">UIVisualEffect</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)sliderEffect"></a>
+                    <a name="//apple_ref/swift/Property/sliderEffect" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)sliderEffect">sliderEffect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The visual effect applied to the <code>slider</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">sliderEffect</span><span class="p">:</span> <span class="kt">UIVisualEffect</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)imagesEffect"></a>
+                    <a name="//apple_ref/swift/Property/imagesEffect" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)imagesEffect">imagesEffect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The visual effect applied to  <code>minimumValueImageView</code> and <code>maximumValueImageView</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">imagesEffect</span><span class="p">:</span> <span class="kt">UIVisualEffect</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)labelsEffect"></a>
+                    <a name="//apple_ref/swift/Property/labelsEffect" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)labelsEffect">labelsEffect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The visual effect applied to  <code><a href="../Classes/PBMediaSlider.html#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)elapsedTimeLabel">elapsedTimeLabel</a></code> and <code><a href="../Classes/PBMediaSlider.html#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)remainingTimeLabel">remainingTimeLabel</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">labelsEffect</span><span class="p">:</span> <span class="kt">UIVisualEffect</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)emptyColor"></a>
+                    <a name="//apple_ref/swift/Property/emptyColor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)emptyColor">emptyColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default color for the part of the slider that is not filled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">emptyColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)fillColor"></a>
+                    <a name="//apple_ref/swift/Property/fillColor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)fillColor">fillColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default color for the part of the slider that is filled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">fillColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)activeFillColor"></a>
+                    <a name="//apple_ref/swift/Property/activeFillColor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)activeFillColor">activeFillColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default color for the part of the slider that is filled when tracking.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">activeFillColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)minimumValueImage"></a>
+                    <a name="//apple_ref/swift/Property/minimumValueImage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)minimumValueImage">minimumValueImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The image that represents the slider’s minimum value.</p>
+
+<p>The default value of this property is nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">minimumValueImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)maximumValueImage"></a>
+                    <a name="//apple_ref/swift/Property/maximumValueImage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)maximumValueImage">maximumValueImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The image that represents the slider’s maximum value.</p>
+
+<p>The default value of this property is nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">maximumValueImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)elapsedTimeLabel"></a>
+                    <a name="//apple_ref/swift/Property/elapsedTimeLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)elapsedTimeLabel">elapsedTimeLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The elapsed time label of the progress control (read-only, but its properties can be changed).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">elapsedTimeLabel</span><span class="p">:</span> <span class="n"><a href="../Classes/PBMediaSlider/_PBMediaSliderTimeLabel.html">_PBMediaSliderTimeLabel</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)remainingTimeLabel"></a>
+                    <a name="//apple_ref/swift/Property/remainingTimeLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)remainingTimeLabel">remainingTimeLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The remaining time label of the progress control (read-only, but its properties can be changed).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">remainingTimeLabel</span><span class="p">:</span> <span class="n"><a href="../Classes/PBMediaSlider/_PBMediaSliderTimeLabel.html">_PBMediaSliderTimeLabel</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)allowHapticFeedbackGeneration"></a>
+                    <a name="//apple_ref/swift/Property/allowHapticFeedbackGeneration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(py)allowHapticFeedbackGeneration">allowHapticFeedbackGeneration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Controls whether interaction with the popup generates haptic feedback to the user.</p>
+
+<p>Defaults to <code>true</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">allowHapticFeedbackGeneration</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13PBMediaSliderAAC13feedbackStyleSo016UIImpactFeedbackD0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/feedbackStyle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13PBMediaSliderAAC13feedbackStyleSo016UIImpactFeedbackD0Vvp">feedbackStyle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>UIImpactFeedbackGenerator.FeedbackStyle</code> used for haptic feedback when the slider reaches either end of its track.</p>
+<div class="aside aside-requires">
+    <p class="aside-title">Requires</p>
+    <p>iOS 10.0 or later</p>
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Defaults to <code>.light</code> if not set</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mf">10.0</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">feedbackStyle</span><span class="p">:</span> <span class="kt">UIImpactFeedbackGenerator</span><span class="o">.</span><span class="kt">FeedbackStyle</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Public Methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Methods"></a>
+                  <h3 class="section-name"><span>Public Methods</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13PBMediaSliderAAC5frame5value7inRange15activeFillColor04fillI005emptyI0ABSo6CGRectV_SfSNySfGSo7UIColorCSgA2Ntcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(frame:value:inRange:activeFillColor:fillColor:emptyColor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13PBMediaSliderAAC5frame5value7inRange15activeFillColor04fillI005emptyI0ABSo6CGRectV_SfSNySfGSo7UIColorCSgA2Ntcfc">init(frame:<wbr>value:<wbr>inRange:<wbr>activeFillColor:<wbr>fillColor:<wbr>emptyColor:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="nv">inRange</span><span class="p">:</span> <span class="kt">ClosedRange</span><span class="o">&lt;</span><span class="kt">Float</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">...</span><span class="mf">1.0</span><span class="p">,</span> <span class="nv">activeFillColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span><span class="p">,</span> <span class="nv">fillColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span><span class="p">,</span> <span class="nv">emptyColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13PBMediaSliderAAC5frame5value12minimumValue07maximumF015activeFillColor04fillJ005emptyJ0ABSo6CGRectV_S3fSo7UIColorCSgA2Ntcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(frame:value:minimumValue:maximumValue:activeFillColor:fillColor:emptyColor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13PBMediaSliderAAC5frame5value12minimumValue07maximumF015activeFillColor04fillJ005emptyJ0ABSo6CGRectV_S3fSo7UIColorCSgA2Ntcfc">init(frame:<wbr>value:<wbr>minimumValue:<wbr>maximumValue:<wbr>activeFillColor:<wbr>fillColor:<wbr>emptyColor:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="nv">minimumValue</span><span class="p">:</span> <span class="kt">Float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="nv">maximumValue</span><span class="p">:</span> <span class="kt">Float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">activeFillColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span><span class="p">,</span> <span class="nv">fillColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span><span class="p">,</span> <span class="nv">emptyColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)initWithCoder:"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)initWithCoder:">init(coder:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)updateConstraints"></a>
+                    <a name="//apple_ref/swift/Method/updateConstraints()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)updateConstraints">updateConstraints()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">updateConstraints</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)layoutSubviews"></a>
+                    <a name="//apple_ref/swift/Method/layoutSubviews()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)layoutSubviews">layoutSubviews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">layoutSubviews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)tintColorDidChange"></a>
+                    <a name="//apple_ref/swift/Method/tintColorDidChange()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)tintColorDidChange">tintColorDidChange()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">tintColorDidChange</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)traitCollectionDidChange:"></a>
+                    <a name="//apple_ref/swift/Method/traitCollectionDidChange(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)traitCollectionDidChange:">traitCollectionDidChange(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">traitCollectionDidChange</span><span class="p">(</span><span class="n">_</span> <span class="nv">previousTraitCollection</span><span class="p">:</span> <span class="kt">UITraitCollection</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)sendAction:to:forEvent:"></a>
+                    <a name="//apple_ref/swift/Method/sendAction(_:to:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)sendAction:to:forEvent:">sendAction(_:<wbr>to:<wbr>for:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">sendAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">Selector</span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)sendActionsForControlEvents:"></a>
+                    <a name="//apple_ref/swift/Method/sendActions(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)sendActionsForControlEvents:">sendActions(for:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">sendActions</span><span class="p">(</span><span class="k">for</span> <span class="nv">controlEvents</span><span class="p">:</span> <span class="kt">UIControl</span><span class="o">.</span><span class="kt">Event</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)setValue:animated:"></a>
+                    <a name="//apple_ref/swift/Method/setValue(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)setValue:animated:">setValue(_:<wbr>animated:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">setValue</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Float</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)setProgress:animated:"></a>
+                    <a name="//apple_ref/swift/Method/setProgress(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)setProgress:animated:">setProgress(_:<wbr>animated:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">setProgress</span><span class="p">(</span><span class="n">_</span> <span class="nv">progress</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Tracking%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Tracking Methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Tracking%20Methods"></a>
+                  <h3 class="section-name"><span>Tracking Methods</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)beginTrackingWithTouch:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/beginTracking(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)beginTrackingWithTouch:withEvent:">beginTracking(_:<wbr>with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">beginTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">touch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)continueTrackingWithTouch:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/continueTracking(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)continueTrackingWithTouch:withEvent:">continueTracking(_:<wbr>with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">continueTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">touch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)endTrackingWithTouch:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/endTracking(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@PBMediaSlider@objc(cs)PBMediaSlider(im)endTrackingWithTouch:withEvent:">endTracking(_:<wbr>with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">endTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">touch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">?,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13PBMediaSliderAAC01_aB9TimeLabelC"></a>
+                    <a name="//apple_ref/swift/Class/_PBMediaSliderTimeLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13PBMediaSliderAAC01_aB9TimeLabelC">_PBMediaSliderTimeLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Classes/PBMediaSlider/_PBMediaSliderTimeLabel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nv">_PBMediaSliderTimeLabel</span> <span class="p">:</span> <span class="kt">UILabel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2024 <a class="link" href="https://github.com/iDevelopper/PBMediaSlider" target="_blank" rel="external noopener">iDevelopper</a>. All rights reserved. (Last updated: 2024-03-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

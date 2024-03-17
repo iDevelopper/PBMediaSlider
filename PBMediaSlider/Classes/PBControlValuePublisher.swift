@@ -59,6 +59,10 @@ public struct UIControlPublisher<Control: UIControl>: Publisher {
 public protocol CombineCompatible { }
 extension PBMediaSlider: CombineCompatible { }
 public extension CombineCompatible where Self: PBMediaSlider {
+    /**
+     A publisher that emits `UIControl.Event` when user interacts with the slider.
+     A Combine alternative to adding action for `UIControl.Event`.
+     */
     func publisher(for events: UIControl.Event) -> UIControlPublisher<UIControl> {
         return UIControlPublisher(control: self, events: events)
     }

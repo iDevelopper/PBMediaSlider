@@ -463,8 +463,8 @@ extension PBMediaSliderStyle
     private var _feedbackStyle: Int?
     
     
-    // MARK: - Public Methods
-    
+    // MARK: - Initialization
+
     convenience public init(frame: CGRect, value: Float = 0.0, inRange: ClosedRange<Float> = 0.0...1.0, activeFillColor: UIColor!, fillColor: UIColor!, emptyColor: UIColor!)
     {
         self.init(frame: frame)
@@ -526,6 +526,11 @@ extension PBMediaSliderStyle
         NotificationCenter.default.removeObserver(self, name: UIContentSizeCategory.didChangeNotification, object: nil)
     }
     
+    // MARK: - Methods to override
+    
+    /**
+     :nodoc:
+     */
     public override func updateConstraints()
     {
         guard self.slider != nil else {
@@ -647,6 +652,9 @@ extension PBMediaSliderStyle
         super.updateConstraints()
     }
     
+    /**
+     :nodoc:
+     */
     public override func layoutSubviews()
     {
         super.layoutSubviews()
@@ -672,6 +680,9 @@ extension PBMediaSliderStyle
         trackView.progress = self.progress
     }
     
+    /**
+     :nodoc:
+     */
     public override func tintColorDidChange()
     {
         super.tintColorDidChange()
@@ -679,6 +690,9 @@ extension PBMediaSliderStyle
         self.updateColors()
     }
     
+    /**
+     :nodoc:
+     */
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
     {
         super.traitCollectionDidChange(previousTraitCollection)
@@ -686,11 +700,17 @@ extension PBMediaSliderStyle
         self.updateColors()
     }
     
+    /**
+     :nodoc:
+     */
     public override func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?)
     {
         super.sendAction(action, to: target, for: event)
     }
     
+    /**
+     :nodoc:
+     */
     public override func sendActions(for controlEvents: UIControl.Event)
     {
         if controlEvents == .valueChanged {
@@ -1065,6 +1085,9 @@ extension PBMediaSliderStyle
 
     // MARK: - Tracking Methods
 
+    /**
+     :nodoc:
+     */
     public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool
     {
         super.beginTracking(touch, with: event)
@@ -1077,6 +1100,9 @@ extension PBMediaSliderStyle
         return true
     }
     
+    /**
+     :nodoc:
+     */
     public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool
     {
         super.continueTracking(touch, with: event)
@@ -1108,6 +1134,9 @@ extension PBMediaSliderStyle
         return true
     }
     
+    /**
+     :nodoc:
+     */
     public override func endTracking(_ touch: UITouch?, with event: UIEvent?)
     {
         if self.isTracking && !self.isContinuous {
@@ -1200,6 +1229,9 @@ extension PBMediaSlider
         }
     }
     
+    /**
+     :nodoc:
+     */
     public class _PBMediaSliderTimeLabel: UILabel
     {
         internal var effectView: UIVisualEffectView? {

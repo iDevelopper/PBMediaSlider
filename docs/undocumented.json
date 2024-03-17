@@ -1,0 +1,145 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBControlValuePublisher.swift",
+      "line": 62,
+      "symbol": "CombineCompatible.publisher(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 11,
+      "symbol": "PBMediaSliderStyle",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 31,
+      "symbol": "PBMediaSliderStyle",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 468,
+      "symbol": "PBMediaSlider.init(frame:value:inRange:activeFillColor:fillColor:emptyColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 485,
+      "symbol": "PBMediaSlider.init(frame:value:minimumValue:maximumValue:activeFillColor:fillColor:emptyColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 501,
+      "symbol": "PBMediaSlider.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 515,
+      "symbol": "PBMediaSlider.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 529,
+      "symbol": "PBMediaSlider.updateConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 650,
+      "symbol": "PBMediaSlider.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 675,
+      "symbol": "PBMediaSlider.tintColorDidChange()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 682,
+      "symbol": "PBMediaSlider.traitCollectionDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 689,
+      "symbol": "PBMediaSlider.sendAction(_:to:for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 694,
+      "symbol": "PBMediaSlider.sendActions(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 703,
+      "symbol": "PBMediaSlider.setValue(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 719,
+      "symbol": "PBMediaSlider.setProgress(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 1068,
+      "symbol": "PBMediaSlider.beginTracking(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 1080,
+      "symbol": "PBMediaSlider.continueTracking(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 1111,
+      "symbol": "PBMediaSlider.endTracking(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 1203,
+      "symbol": "PBMediaSlider._PBMediaSliderTimeLabel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrickbodet/Documents/PBMediaSlider/PBMediaSlider/Classes/PBMediaSlider.swift",
+      "line": 1221,
+      "symbol": "PBMediaSlider._PBMediaSliderTimeLabel.tintColorDidChange()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/patrickbodet/Documents/PBMediaSlider"
+}

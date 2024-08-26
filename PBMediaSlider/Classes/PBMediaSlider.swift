@@ -1084,6 +1084,13 @@ extension PBMediaSliderStyle
     
 
     // MARK: - Tracking Methods
+    
+    /**
+     :nodoc:
+     */
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
 
     /**
      :nodoc:
@@ -1106,6 +1113,7 @@ extension PBMediaSliderStyle
     public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool
     {
         super.continueTracking(touch, with: event)
+        
         let location = touch.location(in: self)
         let previousLocation = touch.previousLocation(in: self)
         let layoutDirection = UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute)

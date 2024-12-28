@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PBMediaSlider'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A Swift Package aiming to recreate volume and track sliders found in Apple Music on iOS 16 and later.'
 
 # This description is used to generate tags and improve search results.

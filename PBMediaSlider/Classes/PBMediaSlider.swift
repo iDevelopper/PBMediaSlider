@@ -1068,7 +1068,7 @@ extension PBMediaSliderStyle
     
     fileprivate class func _secondsToHoursMinutesSecondsStr(seconds: Float) -> String
     {
-        let seconds = Int(seconds)
+        let seconds = Int(roundf(seconds))
         let (hh, mm, ss) = _secondsToHoursMinutesSeconds(seconds: abs(seconds))
         var str = hh > 0 ? String(format: "%02d:", hh) : ""
         str = str + String(format: "%02d:", mm)

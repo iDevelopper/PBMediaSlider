@@ -357,6 +357,7 @@ extension PBMediaSliderStyle
      The remaining time label of the progress control (read-only, but its properties can be changed).
      */
     @objc public private(set) var remainingTimeLabel: _PBMediaSliderTimeLabel!
+    
     /**
      Controls whether interaction with the popup generates haptic feedback to the user.
     
@@ -634,6 +635,7 @@ extension PBMediaSliderStyle
         if let elapsedTimeLabel = self.elapsedTimeLabel,  elapsedTimeLabel.translatesAutoresizingMaskIntoConstraints == true {
             elapsedTimeLabel.translatesAutoresizingMaskIntoConstraints = false
             elapsedTimeLabel.topAnchor.constraint(equalTo: self.slider.bottomAnchor, constant: labelsTopMargin).isActive = true
+            elapsedTimeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0.0).isActive = true
             elapsedTimeLabel.leadingAnchor.constraint(equalTo: self.slider.leadingAnchor, constant: 0.0).isActive = true
         }
         
@@ -641,6 +643,7 @@ extension PBMediaSliderStyle
         if let remainingTimeLabel = self.remainingTimeLabel,  remainingTimeLabel.translatesAutoresizingMaskIntoConstraints == true {
             remainingTimeLabel.translatesAutoresizingMaskIntoConstraints = false
             remainingTimeLabel.topAnchor.constraint(equalTo: self.slider.bottomAnchor, constant: labelsTopMargin).isActive = true
+            remainingTimeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0.0).isActive = true
             remainingTimeLabel.trailingAnchor.constraint(equalTo: self.slider.trailingAnchor, constant: 0.0).isActive = true
         }
         
@@ -803,7 +806,7 @@ extension PBMediaSliderStyle
     {
         if #available(iOS 15.0, *) {
             self.minimumContentSizeCategory = .small
-            self.maximumContentSizeCategory = .extraSmall
+            self.maximumContentSizeCategory = .accessibilityMedium
         }
     }
     
@@ -929,8 +932,8 @@ extension PBMediaSliderStyle
                 elapsedTimeLabel.effect = effect
             }
         }
-        elapsedTimeLabel.font = UIFont.preferredMonospacedFont(for: .headline, weight: .medium)
-        
+        elapsedTimeLabel.font = UIFont.preferredMonospacedFont(for: .subheadline, weight: .medium, maxPointSize: 15.0)
+
         self.setNeedsUpdateConstraints()
         self.updateConstraintsIfNeeded()
     }
@@ -976,8 +979,8 @@ extension PBMediaSliderStyle
                 remainingTimeLabel.effect = effect
             }
         }
-        remainingTimeLabel.font = UIFont.preferredMonospacedFont(for: .headline, weight: .medium)
-        
+        remainingTimeLabel.font = UIFont.preferredMonospacedFont(for: .subheadline, weight: .medium, maxPointSize: 15.0)
+
         self.setNeedsUpdateConstraints()
         self.updateConstraintsIfNeeded()
     }
